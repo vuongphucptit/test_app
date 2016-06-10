@@ -1,0 +1,26 @@
+<% provide(:title, "Log in") %>
+
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.submit "Login", class: "btn btn-primary" %>
+    <% end %>
+
+    <h2 class="form-signin-heading">New user? <%= link_to "Register now!", register_path %> Or Login via</h2>
+
+    <div class="text-center">
+      <%= link_to content_tag(:i, '', class: 'fa fa-facebook'), '/auth/facebook', :class => "btn btn-primary social-login-btn social-facebook" %>
+      <%= link_to content_tag(:i, '', class: 'fa fa-twitter'), '/auth/twitter', :class => "btn btn-primary social-login-btn social-twitter" %>
+      <%= link_to content_tag(:i, '', class: 'fa fa-google-plus'), '/auth/google', :class => "btn btn-primary social-login-btn social-google" %>
+      <%= link_to content_tag(:i, '', class: 'fa fa-linkedin'), '/auth/instagram', :class => "btn btn-primary social-login-btn social-linkedin" %></li>
+    </div>
+  </div>
+</div>

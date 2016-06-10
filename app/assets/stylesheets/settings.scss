@@ -1,0 +1,66 @@
+ul.form-nav {
+  list-style-type: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+ul.form-nav li a.selected {
+  background-color: #2d72d9;
+  color: #fff;
+  border-color: #08a;
+}
+
+ul.form-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #999;
+  line-height: 19px;
+  font-weight: 700;
+  padding: 10px;
+  width: 240px;
+  border-radius: 3px;
+}
+
+.setting-social-connect {
+  width: 460px;
+  label: {
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 700;
+  }
+  .connection {
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.1);
+  }
+
+  a.btn, input[type=submit] {
+    color: #fff;
+    background-color: #09f;
+    padding: 8px 24px;
+    height: 20px;
+    border: none;
+    border-radius: 3px;
+    font: 700 14px/20px Helvetica Neue,Arial,Helvetica,Geneva,sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    -webkit-appearance: none;
+    box-sizing: content-box;
+  }
+}
+
+.setting-social-connect .connection p.label {
+  line-height: 20px;
+  padding: 10px;
+  float: left;
+  color: #999;
+  font-weight: 700;
+}
+
+.setting-social-connect .connection a.btn, .setting-social-connect .connection a.thick {
+  float: right;
+}

@@ -1,0 +1,92 @@
+<div class="setting-profile">
+  <div class="col-md-10">
+    <%= form_for(@user, url: settings_profile_path, html: {method: 'post'}) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %><br>
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %><br>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <div class="picture">
+          <%= f.label 'Avatar' %><br>
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
+        </div>
+
+        <div class="setting-social-connect">
+          <label>Social Networks</label>
+
+          <div class="connection">
+            <div class="field">
+              <% if @user_face && @user_face.is_connect? %>
+                  <p class="label">Facebook connected</p>
+                  <%= link_to 'Disconnect', disconnect_path(:provider => 'facebook'), :class => "thick badge-add-fb-timeline switch_on" %>
+              <% else %>
+                  <p class="label">Facebook not connected</p>
+                  <%= link_to 'Connect Now', '/auth/facebook', :class => "btn badge-add-fb-timeline switch_of" %>
+              <% end %>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+
+          <div class="connection">
+            <div class="field">
+              <% if @user_twitter && @user_twitter.is_connect? %>
+                  <p class="label">Twitter connected</p>
+                  <%= link_to 'Disconnect', disconnect_path(:provider => 'twitter'), :class => "thick badge-add-fb-timeline switch_on" %>
+              <% else %>
+                  <p class="label">Twitter not connected</p>
+                  <%= link_to 'Connect Now', '/auth/twitter', :class => "btn badge-add-fb-timeline switch_of" %>
+              <% end %>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+
+          <div class="connection">
+            <div class="field">
+              <% if @user_google && @user_google.is_connect? %>
+                  <p class="label">Google+ connected</p>
+                  <%= link_to 'Disconnect', disconnect_path(:provider => 'google'), :class => "thick badge-add-fb-timeline switch_on" %>
+              <% else %>
+                  <p class="label">Google+ not connected</p>
+                  <%= link_to 'Connect Now', '/auth/google', :class => "btn badge-add-fb-timeline switch_of" %>
+              <% end %>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+
+          <div class="connection">
+            <div class="field">
+              <% if @user_instagram && @user_instagram.is_connect? %>
+                  <p class="label">Instagram connected</p>
+                  <%= link_to 'Disconnect', disconnect_path(:provider => 'instagram'), :class => "thick badge-add-fb-timeline switch_on" %>
+              <% else %>
+                  <p class="label">Instagram not connected</p>
+                  <%= link_to 'Connect Now', '/auth/instagram', :class => "btn badge-add-fb-timeline switch_of" %>
+              <% end %>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions col-md-4 row">
+          <%= f.submit "Save Changes", class: "btn btn-primary" %>
+        </div>
+    <% end %>
+  </div>
+</div>
